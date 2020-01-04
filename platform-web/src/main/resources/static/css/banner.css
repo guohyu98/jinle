@@ -1,0 +1,49 @@
+.inputfile{
+    margin-top:20px;
+}
+.cnt_box{
+    margin-left: 15px;
+    height:120px;
+}
+.cnt_box:after{
+    content:"";
+    display:block;
+    visibility:hidden;
+    clear:both;
+}
+.pr{
+    position:relative;
+}
+.tupian{
+    width:110px;
+    height:120px;
+    margin-right:16px;
+    float:left;
+    border:1px dashed #e3e3e3;
+    border-radius: 6px;
+}
+.file, .uploadimg{
+    position:absolute;
+    width:110px;
+    height:120px;
+}
+.file{
+    outline:none;
+    border:0;
+    opacity:0;
+}
+.bgcancel{
+    position: absolute;
+    width: 16px;
+    right: -8px;
+    top: -8px;
+}
+.addpicture{
+    display:flex;
+    padding:30px 15px;
+    width:80px;
+    height:60px;
+    justify-content: center;
+    background:transparent;
+    z-index: 10;
+}

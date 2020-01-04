@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.HotelRoomTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.HotelRoomType" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="hotel_id" property="hotelId" jdbcType="INTEGER" />
+	<result column="name" property="name" jdbcType="VARCHAR" />
+	<result column="room_size" property="roomSize" jdbcType="VARCHAR" />
+	<result column="bed_type" property="bedType" jdbcType="INTEGER" />
+	<result column="bed_size" property="bedSize" jdbcType="VARCHAR" />
+	<result column="floor" property="floor" jdbcType="VARCHAR" />
+	<result column="guest_number" property="guestNumber" jdbcType="INTEGER" />
+	<result column="original_price" property="originalPrice" jdbcType="DECIMAL" />
+	<result column="settlement_fund" property="settlementFund" jdbcType="DECIMAL" />
+	<result column="member_price" property="memberPrice" jdbcType="DECIMAL" />
+	<result column="show_img" property="showImg" jdbcType="VARCHAR" />
+	<result column="reservation_notes" property="reservationNotes" jdbcType="LONGVARCHAR" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, hotel_id, name, room_size, bed_type, 
+	bed_size, floor, guest_number, original_price, settlement_fund, 
+	member_price, show_img, reservation_notes, status, is_del, 
+	add_time, update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.HotelRoomType" >
+	insert into hotel_room_type (
+	  hotel_id, name, 
+	  room_size, bed_type, bed_size, 
+	  floor, guest_number, original_price, 
+	  settlement_fund, member_price, show_img, 
+	  reservation_notes, status, is_del, 
+	  add_time, update_time)
+	values (
+	  #{hotelId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+	  #{roomSize,jdbcType=VARCHAR}, #{bedType,jdbcType=INTEGER}, #{bedSize,jdbcType=VARCHAR}, 
+	  #{floor,jdbcType=VARCHAR}, #{guestNumber,jdbcType=INTEGER}, #{originalPrice,jdbcType=DECIMAL}, 
+	  #{settlementFund,jdbcType=DECIMAL}, #{memberPrice,jdbcType=DECIMAL}, #{showImg,jdbcType=VARCHAR}, 
+	  #{reservationNotes,jdbcType=LONGVARCHAR}, #{status,jdbcType=INTEGER}, #{isDel,jdbcType=INTEGER}, 
+	  #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.HotelRoomType" >
+	update hotel_room_type
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="hotelId != null">
+		hotel_id = #{hotelId,jdbcType=INTEGER},
+	  </if>
+	  <if test="name != null and name != ''">
+		name = #{name,jdbcType=VARCHAR},
+	  </if>
+	  <if test="roomSize != null and roomSize != ''">
+		room_size = #{roomSize,jdbcType=VARCHAR},
+	  </if>
+	  <if test="bedType != null">
+		bed_type = #{bedType,jdbcType=INTEGER},
+	  </if>
+	  <if test="bedSize != null and bedSize != ''">
+		bed_size = #{bedSize,jdbcType=VARCHAR},
+	  </if>
+	  <if test="floor != null and floor != ''">
+		floor = #{floor,jdbcType=VARCHAR},
+	  </if>
+	  <if test="guestNumber != null">
+		guest_number = #{guestNumber,jdbcType=INTEGER},
+	  </if>
+	  <if test="originalPrice != null">
+		original_price = #{originalPrice,jdbcType=DECIMAL},
+	  </if>
+	  <if test="settlementFund != null">
+		settlement_fund = #{settlementFund,jdbcType=DECIMAL},
+	  </if>
+	  <if test="memberPrice != null">
+		member_price = #{memberPrice,jdbcType=DECIMAL},
+	  </if>
+	  <if test="showImg != null and showImg != ''">
+		show_img = #{showImg,jdbcType=VARCHAR},
+	  </if>
+	  <if test="reservationNotes != null">
+		reservation_notes = #{reservationNotes,jdbcType=LONGVARCHAR},
+	  </if>
+	  <if test="status != null">
+		status = #{status,jdbcType=INTEGER},
+	  </if>
+	  <if test="isDel != null">
+		is_del = #{isDel,jdbcType=INTEGER},
+	  </if>
+	  <if test="addTime != null">
+		add_time = #{addTime,jdbcType=TIMESTAMP},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	delete from hotel_room_type
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_room_type
+	where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_room_type
+  </select>
+  
+  <select id="selectListHotelRoomType" resultMap="BaseResultMap" parameterType="com.jyyq.platformweb.dao.HotelRoomType" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_room_type
+  </select>
+</mapper>

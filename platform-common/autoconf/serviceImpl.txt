@@ -1,0 +1,31 @@
+package ${package};
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+${import}
+
+@Service
+public class ${s1}ServiceImpl implements ${s1}Service {
+
+	@Resource
+	${s1}Mapper ${s2}Mapper;
+
+	public int insert(${s1} record){
+		return ${s2}Mapper.insert(record);
+	}
+	
+	${methodByPrimaryKey}
+
+	public List<${s1}> selectAll(){
+		return ${s2}Mapper.selectAll();
+	}
+
+	public List<${s1}> selectList${s1}(${s1} record){
+		return ${s2}Mapper.selectList${s1}(record);
+	}
+
+}

@@ -1,0 +1,120 @@
+package ${package};
+
+import com.jyyq.platformcommon.common.ShowVarUtil;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+${import}
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/${c2}Manage")
+public class ${c1}ManageController {
+
+	@Resource
+	${c1}Service ${c2}Service;
+
+	/**
+	 * 查询列表
+	 */
+	@RequestMapping("/query${c1}")
+	public String query${c1}(${c1} ${c2}, HttpServletRequest request, Model model){
+		long time = System.currentTimeMillis();
+		ShowVarUtil.start("query${c1}");
+		ShowVarUtil.showJsonObject("${c2}", ${c2});
+		List<${c1}> ${c2}List = ${c2}Service.selectList${c1}(${c2});
+		model.addAttribute("${c2}List", ${c2}List);
+		ShowVarUtil.end("query${c1}", time);
+		return "platform/${c2}Manage";
+	}
+
+	/**
+	 * 新增/修改页面
+	 */
+	@RequestMapping("/query${c1}Details")
+	public String query${c1}Details(${pk}HttpServletRequest request, Model model){
+		long time = System.currentTimeMillis();
+		ShowVarUtil.start("query${c1}Details");
+		ShowVarUtil.input_show("id",${pk2});
+		${c1} ${c2} = null;
+		if(id!=null){
+			${c2} = ${c2}Service.selectByPrimaryKey(${pk2});
+		}else{
+			${c2} = new ${c1}();
+		}
+		model.addAttribute("${c2}",${c2});
+		ShowVarUtil.end("query${c1}Details", time);
+		return "platform/${c2}Details";
+	}
+
+	/**
+	 * 添加/修改
+	 */
+	@RequestMapping("/save${c1}")
+	@ResponseBody
+	public Map<String, Object> save${c1}(${c1} ${c2}, HttpServletRequest request, Model model){
+		long time = System.currentTimeMillis();
+		ShowVarUtil.start("save${c1}");
+		ShowVarUtil.showJsonObject("${c2}", ${c2});
+		Map<String, Object> map = new HashMap<String, Object>();
+		int ret = 0;
+		try {
+			if(${c2}.getId()==null){
+				${c2}.setAddTime(new Date());
+				ret = ${c2}Service.insert(${c2});
+			}else{
+				ret = ${c2}Service.updateByPrimaryKey(${c2});
+			}
+			if(ret>0){
+				map.put("state", "success");
+			}else{
+				map.put("state", "error");
+			}
+			return map;
+		} catch (Exception e) {
+			map.put("state", "error");
+			map.put("msg",e.getMessage());
+			return map;
+		}finally{
+			ShowVarUtil.end("save${c1}", time);
+		}
+	}
+
+	/**
+	 * 删除
+	 */
+	@RequestMapping("/delete${c1}")
+	@ResponseBody
+	public Map<String, Object> delete${c1}(${pk}HttpServletRequest request){
+		long time = System.currentTimeMillis();
+		ShowVarUtil.start("delete${c1}");
+		ShowVarUtil.input_show("id",${pk2});
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			int ret = ${c2}Service.deleteByPrimaryKey(${pk2});
+			if(ret>0){
+				map.put("state", "success");
+			}else{
+				map.put("state", "error");
+			}
+			return map;
+		} catch (Exception e) {
+			map.put("state", "error");
+			map.put("msg",e.getMessage());
+			return map;
+		}finally{
+			ShowVarUtil.end("delete${c1}", time);
+		}
+	}
+
+}

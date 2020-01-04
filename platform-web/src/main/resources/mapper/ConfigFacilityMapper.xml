@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.ConfigFacilityMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.ConfigFacility" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="name" property="name" jdbcType="VARCHAR" />
+	<result column="parent_id" property="parentId" jdbcType="INTEGER" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, name, parent_id, add_time,
+	update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.ConfigFacility" >
+	insert into config_facility (
+	  name, parent_id, add_time)
+	values (
+	  #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.ConfigFacility" >
+	update config_facility
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="name != null and name != ''">
+		name = #{name,jdbcType=VARCHAR},
+	  </if>
+	  <if test="parentId != null">
+		parent_id = #{parentId,jdbcType=INTEGER},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	update config_facility set is_del=1, update_time=now()
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from config_facility
+	where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectListAll" resultMap="BaseResultMap" >
+	select 
+	  a.id, a.name, a.parent_id, b.name as parentName
+	from config_facility a
+	left join config_facility b on a.parent_id=b.id
+	where a.is_del=0
+	order by a.parent_id, a.id
+  </select>
+  
+  <select id="selectListParent" resultMap="BaseResultMap" >
+	select 
+	  a.id, a.name, a.parent_id
+	from config_facility a
+	where a.parent_id=0 and a.is_del=0
+	order by a.id
+  </select>
+
+  <select id="selectListChildren" resultMap="BaseResultMap" >
+	select
+	  a.id, a.name, a.parent_id, b.name as parentName
+	from config_facility a
+	left join config_facility b on a.parent_id=b.id
+	where a.parent_id &lt;&gt;0 and a.is_del=0
+	order by a.parent_id, a.id
+  </select>
+</mapper>

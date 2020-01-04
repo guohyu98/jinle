@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.ConfigBedTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.ConfigBedType" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="name" property="name" jdbcType="VARCHAR" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, name, add_time, update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.ConfigBedType" >
+	insert into config_bed_type (
+	  name, add_time)
+	values (
+	  #{name,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.ConfigBedType" >
+	update config_bed_type
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="name != null and name != ''">
+		name = #{name,jdbcType=VARCHAR},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	update config_bed_type set is_del=1,update_time=now()
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from config_bed_type
+	where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+	select 
+	  <include refid="Base_Column_List" />
+	from config_bed_type
+	where is_del=0
+  </select>
+  
+  <select id="selectListConfigBedType" resultMap="BaseResultMap" parameterType="com.jyyq.platformweb.dao.ConfigBedType" >
+	select 
+	  <include refid="Base_Column_List" />
+	from config_bed_type
+	where is_del=0
+  </select>
+</mapper>

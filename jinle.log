@@ -1,0 +1,80 @@
+2019-12-11 14:26:51.197  INFO 14732 --- [main] c.j.platformweb.PlatformWebApplication   : Starting PlatformWebApplication on DESKTOP-307R7T1 with PID 14732 (D:\WorkSpace\IdeaProjects\jinle\platform-web\target\classes started by yu in D:\WorkSpace\IdeaProjects\jinle)
+2019-12-11 14:26:51.212  INFO 14732 --- [main] c.j.platformweb.PlatformWebApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 14:26:54.703  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-12-11 14:26:54.725  INFO 14732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 14:26:54.726  INFO 14732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-11 14:26:55.398  INFO 14732 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-12-11 14:26:55.411  INFO 14732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring embedded WebApplicationContext
+2019-12-11 14:26:55.412  INFO 14732 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3982 ms
+2019-12-11 14:26:56.308  INFO 14732 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 14:26:56.848  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/jinle'
+2019-12-11 14:26:56.853  INFO 14732 --- [main] c.j.platformweb.PlatformWebApplication   : Started PlatformWebApplication in 7.245 seconds (JVM running for 11.976)
+2019-12-11 14:27:18.435  INFO 14732 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1574408507] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2019-12-11 14:27:18.447  INFO 14732 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-11 14:27:18.447  INFO 14732 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-11 14:27:18.461  INFO 14732 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-12-11 16:36:52.084  INFO 13684 --- [main] c.j.platformweb.PlatformWebApplication   : Starting PlatformWebApplication on DESKTOP-307R7T1 with PID 13684 (D:\WorkSpace\IdeaProjects\jinle\platform-web\target\classes started by yu in D:\WorkSpace\IdeaProjects\jinle)
+2019-12-11 16:36:52.094  INFO 13684 --- [main] c.j.platformweb.PlatformWebApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 16:36:58.103  INFO 13684 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-12-11 16:36:58.141  INFO 13684 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 16:36:58.143  INFO 13684 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-11 16:36:59.562  INFO 13684 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-12-11 16:36:59.578  INFO 13684 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring embedded WebApplicationContext
+2019-12-11 16:36:59.579  INFO 13684 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7295 ms
+2019-12-11 16:37:01.179  INFO 13684 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 16:37:01.871  INFO 13684 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/jinle'
+2019-12-11 16:37:01.876  INFO 13684 --- [main] c.j.platformweb.PlatformWebApplication   : Started PlatformWebApplication in 11.084 seconds (JVM running for 14.09)
+2019-12-11 16:37:59.361  INFO 13684 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1574408507] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2019-12-11 16:37:59.373  INFO 13684 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-11 16:37:59.374  INFO 13684 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-11 16:37:59.389  INFO 13684 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2019-12-11 16:48:18.551  INFO 8556 --- [main] c.j.platformweb.PlatformWebApplication   : Starting PlatformWebApplication on DESKTOP-307R7T1 with PID 8556 (D:\WorkSpace\IdeaProjects\jinle\platform-web\target\classes started by yu in D:\WorkSpace\IdeaProjects\jinle)
+2019-12-11 16:48:18.558  INFO 8556 --- [main] c.j.platformweb.PlatformWebApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 16:48:21.397  INFO 8556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-12-11 16:48:21.418  INFO 8556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 16:48:21.419  INFO 8556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-11 16:48:22.008  INFO 8556 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-12-11 16:48:22.019  INFO 8556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring embedded WebApplicationContext
+2019-12-11 16:48:22.019  INFO 8556 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3333 ms
+2019-12-11 16:48:22.827  INFO 8556 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 16:48:23.492  INFO 8556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/jinle'
+2019-12-11 16:48:23.522  INFO 8556 --- [main] c.j.platformweb.PlatformWebApplication   : Started PlatformWebApplication in 7.273 seconds (JVM running for 10.362)
+2019-12-11 16:48:39.049  INFO 8556 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1574408507] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2019-12-11 16:48:39.062  INFO 8556 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-11 16:48:39.062  INFO 8556 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-11 16:48:39.076  INFO 8556 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-12-11 16:52:49.696  INFO 11752 --- [main] c.j.platformweb.PlatformWebApplication   : Starting PlatformWebApplication on DESKTOP-307R7T1 with PID 11752 (D:\WorkSpace\IdeaProjects\jinle\platform-web\target\classes started by yu in D:\WorkSpace\IdeaProjects\jinle)
+2019-12-11 16:52:49.723  INFO 11752 --- [main] c.j.platformweb.PlatformWebApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 16:52:53.155  INFO 11752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-12-11 16:52:53.169  INFO 11752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 16:52:53.170  INFO 11752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-11 16:52:53.712  INFO 11752 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-12-11 16:52:53.722  INFO 11752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring embedded WebApplicationContext
+2019-12-11 16:52:53.723  INFO 11752 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3842 ms
+2019-12-11 16:52:54.430  INFO 11752 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 16:52:55.036  INFO 11752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/jinle'
+2019-12-11 16:52:55.043  INFO 11752 --- [main] c.j.platformweb.PlatformWebApplication   : Started PlatformWebApplication in 6.225 seconds (JVM running for 7.963)
+2019-12-11 16:55:20.308  INFO 11752 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1574408507] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2019-12-11 16:55:20.330  INFO 11752 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-11 16:55:20.330  INFO 11752 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-11 16:55:20.347  INFO 11752 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2019-12-11 17:01:05.427  INFO 15280 --- [main] c.j.platformweb.PlatformWebApplication   : Starting PlatformWebApplication on DESKTOP-307R7T1 with PID 15280 (D:\WorkSpace\IdeaProjects\jinle\platform-web\target\classes started by yu in D:\WorkSpace\IdeaProjects\jinle)
+2019-12-11 17:01:05.436  INFO 15280 --- [main] c.j.platformweb.PlatformWebApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 17:01:08.776  INFO 15280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-12-11 17:01:08.795  INFO 15280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 17:01:08.796  INFO 15280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-11 17:01:09.476  INFO 15280 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-12-11 17:01:09.483  INFO 15280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring embedded WebApplicationContext
+2019-12-11 17:01:09.484  INFO 15280 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3896 ms
+2019-12-11 17:01:10.193  INFO 15280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 17:01:10.797  INFO 15280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/jinle'
+2019-12-11 17:01:10.803  INFO 15280 --- [main] c.j.platformweb.PlatformWebApplication   : Started PlatformWebApplication in 6.254 seconds (JVM running for 7.935)
+2019-12-11 17:01:25.232  INFO 15280 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1574408507] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2019-12-11 17:01:25.247  INFO 15280 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/jinle]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-11 17:01:25.247  INFO 15280 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-11 17:01:25.260  INFO 15280 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.HotelFacilityMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.HotelFacility" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="hotel_id" property="hotelId" jdbcType="INTEGER" />
+	<result column="facility_classify" property="facilityClassify" jdbcType="INTEGER" />
+	<result column="facility" property="facility" jdbcType="VARCHAR" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, hotel_id, facility_classify, facility, add_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.HotelFacility" >
+	insert into hotel_facility (
+	  hotel_id, facility_classify, 
+	  facility, add_time)
+	values (
+	  #{hotelId,jdbcType=INTEGER}, #{facilityClassify,jdbcType=INTEGER}, 
+	  #{facility,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.HotelFacility" >
+	update hotel_facility
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="hotelId != null">
+		hotel_id = #{hotelId,jdbcType=INTEGER},
+	  </if>
+	  <if test="facilityClassify != null">
+		facility_classify = #{facilityClassify,jdbcType=INTEGER},
+	  </if>
+	  <if test="facility != null and facility != ''">
+		facility = #{facility,jdbcType=VARCHAR},
+	  </if>
+	  <if test="addTime != null">
+		add_time = #{addTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	delete from hotel_facility
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_facility
+	where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_facility
+  </select>
+  
+  <select id="selectListHotelFacility" resultMap="BaseResultMap" parameterType="com.jyyq.platformweb.dao.HotelFacility" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel_facility
+  </select>
+</mapper>

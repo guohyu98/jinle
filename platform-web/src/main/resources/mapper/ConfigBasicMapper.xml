@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.ConfigBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.ConfigBasic" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="startup_page" property="startupPage" jdbcType="VARCHAR" />
+	<result column="advertising_img" property="advertisingImg" jdbcType="VARCHAR" />
+	<result column="member_agreement" property="memberAgreement" jdbcType="LONGVARCHAR" />
+	<result column="customer_agreement" property="customerAgreement" jdbcType="LONGVARCHAR" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, startup_page, advertising_img, member_agreement, customer_agreement, add_time,
+	update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.ConfigBasic" >
+	insert into config_basic (
+	  startup_page, advertising_img, customer_agreement,
+	  member_agreement, add_time, update_time)
+	values (
+	  #{startupPage,jdbcType=VARCHAR}, #{advertisingImg,jdbcType=VARCHAR}, #{customerAgreement,jdbcType=LONGVARCHAR},
+	  #{memberAgreement,jdbcType=LONGVARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="update" parameterType="com.jyyq.platformweb.dao.ConfigBasic" >
+	update config_basic
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="startupPage != null">
+		startup_page = #{startupPage,jdbcType=VARCHAR},
+	  </if>
+	  <if test="advertisingImg != null">
+		advertising_img = #{advertisingImg,jdbcType=VARCHAR},
+	  </if>
+	  <if test="memberAgreement != null">
+		member_agreement = #{memberAgreement,jdbcType=LONGVARCHAR},
+	  </if>
+	  <if test="customerAgreement != null">
+		customer_agreement = #{customerAgreement,jdbcType=LONGVARCHAR},
+	  </if>
+	  <if test="addTime != null">
+		add_time = #{addTime,jdbcType=TIMESTAMP},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+  </update>
+  
+  <select id="selectConfigBasic" resultMap="BaseResultMap" >
+	select 
+	  id, advertising_img, member_agreement, customer_agreement
+	from config_basic
+	limit 1
+  </select>
+
+  <select id="selectStartupPage" resultType="java.lang.String" >
+	select
+	  startup_page
+	from config_basic
+	limit 1
+  </select>
+</mapper>

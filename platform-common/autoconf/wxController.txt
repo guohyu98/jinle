@@ -1,0 +1,41 @@
+package ${package};
+
+import com.jyyq.platformcommon.common.ShowVarUtil;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import com.pojo.UserInfo;
+${import}
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/${c2}")
+public class Wx${c1}Controller {
+
+	@Resource
+	${c1}Service ${c2}Service;
+
+	/**
+	 * 查询列表
+	 */
+	@RequestMapping("/query${c1}")
+	public String query${c1}(${c1} ${c2}, HttpServletRequest request, Model model){
+		ShowVarUtil.start("query${c1}");
+		ShowVarUtil.showJsonObject("${c2}", ${c2});
+		UserInfo userInfo = (UserInfo)request.getSession().getAttribute("userInfo");
+		List<${c1}> ${c2}List = ${c2}Service.selectList${c1}(${c2});
+		model.addAttribute("${c2}List", ${c2}List);
+		ShowVarUtil.end("query${c1}");
+		return "wx/${c2}";
+	}
+
+}

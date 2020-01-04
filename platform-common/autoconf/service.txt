@@ -1,0 +1,14 @@
+package ${package};
+
+${import}
+
+import java.util.List;
+
+public interface ${s1}Service {
+
+	int insert(${s1} record);
+	${methodByPrimaryKey}
+	List<${s1}> selectAll();
+	List<${s1}> selectList${s1}(${s1} record);
+
+}

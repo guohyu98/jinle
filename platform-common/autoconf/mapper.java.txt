@@ -1,0 +1,14 @@
+package ${package};
+
+import org.apache.ibatis.annotations.Mapper;
+${import}
+
+@Mapper
+public interface ${m1}Mapper {
+
+	int insert(${m1} record);
+	${methodByPrimaryKey}
+	List<${m1}> selectAll();
+	List<${m1}> selectList${m1}(${m1} record);
+
+}

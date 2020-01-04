@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.CommonProblemMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.CommonProblem" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="title" property="title" jdbcType="VARCHAR" />
+	<result column="icon" property="icon" jdbcType="VARCHAR" />
+	<result column="content" property="content" jdbcType="LONGVARCHAR" />
+	<result column="sort" property="sort" jdbcType="INTEGER" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, title, icon, content, sort, 
+	is_del, add_time, update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.CommonProblem" >
+	insert into common_problem (
+	  title, icon, 
+	  content, sort, is_del, 
+	  add_time, update_time)
+	values (
+	  #{title,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+	  #{content,jdbcType=LONGVARCHAR}, #{sort,jdbcType=INTEGER}, #{isDel,jdbcType=INTEGER}, 
+	  #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.CommonProblem" >
+	update common_problem
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="title != null and title != ''">
+		title = #{title,jdbcType=VARCHAR},
+	  </if>
+	  <if test="icon != null and icon != ''">
+		icon = #{icon,jdbcType=VARCHAR},
+	  </if>
+	  <if test="content != null">
+		content = #{content,jdbcType=LONGVARCHAR},
+	  </if>
+	  <if test="sort != null">
+		sort = #{sort,jdbcType=INTEGER},
+	  </if>
+	  <if test="isDel != null">
+		is_del = #{isDel,jdbcType=INTEGER},
+	  </if>
+	  <if test="addTime != null">
+		add_time = #{addTime,jdbcType=TIMESTAMP},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	update common_problem set is_del=1,update_time=now()
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from common_problem
+	where id = #{id,jdbcType=INTEGER}
+	order by sort is null, sort
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+	select 
+	  <include refid="Base_Column_List" />
+	from common_problem
+  	where is_del=0
+  </select>
+  
+  <select id="selectListCommonProblem" resultMap="BaseResultMap" parameterType="com.jyyq.platformweb.dao.CommonProblem" >
+	select 
+	  <include refid="Base_Column_List" />
+	from common_problem
+	where is_del=0
+  </select>
+</mapper>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jyyq.platformweb.mapper.HotelMapper" >
+  <resultMap id="BaseResultMap" type="com.jyyq.platformweb.dao.Hotel" >
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="name" property="name" jdbcType="VARCHAR" />
+	<result column="is_hot" property="isHot" jdbcType="INTEGER" />
+	<result column="hot_sort" property="hotSort" jdbcType="INTEGER" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+	<result column="hotel_star" property="hotelStar" jdbcType="INTEGER" />
+	<result column="cover" property="cover" jdbcType="VARCHAR" />
+	<result column="address" property="address" jdbcType="VARCHAR" />
+	<result column="contact" property="contact" jdbcType="VARCHAR" />
+	<result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+	<result column="banner" property="banner" jdbcType="VARCHAR" />
+	<result column="check_in_time" property="checkInTime" jdbcType="VARCHAR" />
+	<result column="check_out_time" property="checkOutTime" jdbcType="VARCHAR" />
+	<result column="is_allow_pet" property="isAllowPet" jdbcType="INTEGER" />
+	<result column="has_breakfast" property="hasBreakfast" jdbcType="INTEGER" />
+	<result column="breakfast_price" property="breakfastPrice" jdbcType="DECIMAL" />
+	<result column="breakfast_served_date" property="breakfastServedDate" jdbcType="VARCHAR" />
+	<result column="breakfast_start_time" property="breakfastStartTime" jdbcType="VARCHAR" />
+	<result column="breakfast_end_time" property="breakfastEndTime" jdbcType="VARCHAR" />
+	<result column="is_dining_reservation" property="isDiningReservation" jdbcType="INTEGER" />
+	<result column="settlement_type" property="settlementType" jdbcType="INTEGER" />
+	<result column="details" property="details" jdbcType="LONGVARCHAR" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+  	id, name, is_hot, hot_sort, status, 
+	hotel_star, cover, address, contact, phone_number, 
+	banner, check_in_time, check_out_time, is_allow_pet, has_breakfast, 
+	breakfast_price, breakfast_served_date, breakfast_start_time, breakfast_end_time, is_dining_reservation, 
+	settlement_type, details, is_del, add_time, update_time
+  </sql>
+  
+  <insert id="insert" parameterType="com.jyyq.platformweb.dao.Hotel" >
+	insert into hotel (
+	  name, is_hot, 
+	  hot_sort, status, hotel_star, 
+	  cover, address, contact, 
+	  phone_number, banner, check_in_time, 
+	  check_out_time, is_allow_pet, has_breakfast, 
+	  breakfast_price, breakfast_served_date, breakfast_start_time, 
+	  breakfast_end_time, is_dining_reservation, settlement_type, 
+	  details, is_del, add_time, 
+	  update_time)
+	values (
+	  #{name,jdbcType=VARCHAR}, #{isHot,jdbcType=INTEGER}, 
+	  #{hotSort,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{hotelStar,jdbcType=INTEGER}, 
+	  #{cover,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, 
+	  #{phoneNumber,jdbcType=VARCHAR}, #{banner,jdbcType=VARCHAR}, #{checkInTime,jdbcType=VARCHAR}, 
+	  #{checkOutTime,jdbcType=VARCHAR}, #{isAllowPet,jdbcType=INTEGER}, #{hasBreakfast,jdbcType=INTEGER}, 
+	  #{breakfastPrice,jdbcType=DECIMAL}, #{breakfastServedDate,jdbcType=VARCHAR}, #{breakfastStartTime,jdbcType=VARCHAR}, 
+	  #{breakfastEndTime,jdbcType=VARCHAR}, #{isDiningReservation,jdbcType=INTEGER}, #{settlementType,jdbcType=INTEGER}, 
+	  #{details,jdbcType=LONGVARCHAR}, #{isDel,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+	  #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jyyq.platformweb.dao.Hotel" >
+	update hotel
+	<trim prefix="set" suffixOverrides=",">
+	  <if test="name != null and name != ''">
+		name = #{name,jdbcType=VARCHAR},
+	  </if>
+	  <if test="isHot != null">
+		is_hot = #{isHot,jdbcType=INTEGER},
+	  </if>
+	  <if test="hotSort != null">
+		hot_sort = #{hotSort,jdbcType=INTEGER},
+	  </if>
+	  <if test="status != null">
+		status = #{status,jdbcType=INTEGER},
+	  </if>
+	  <if test="hotelStar != null">
+		hotel_star = #{hotelStar,jdbcType=INTEGER},
+	  </if>
+	  <if test="cover != null and cover != ''">
+		cover = #{cover,jdbcType=VARCHAR},
+	  </if>
+	  <if test="address != null and address != ''">
+		address = #{address,jdbcType=VARCHAR},
+	  </if>
+	  <if test="contact != null and contact != ''">
+		contact = #{contact,jdbcType=VARCHAR},
+	  </if>
+	  <if test="phoneNumber != null and phoneNumber != ''">
+		phone_number = #{phoneNumber,jdbcType=VARCHAR},
+	  </if>
+	  <if test="banner != null and banner != ''">
+		banner = #{banner,jdbcType=VARCHAR},
+	  </if>
+	  <if test="checkInTime != null and checkInTime != ''">
+		check_in_time = #{checkInTime,jdbcType=VARCHAR},
+	  </if>
+	  <if test="checkOutTime != null and checkOutTime != ''">
+		check_out_time = #{checkOutTime,jdbcType=VARCHAR},
+	  </if>
+	  <if test="isAllowPet != null">
+		is_allow_pet = #{isAllowPet,jdbcType=INTEGER},
+	  </if>
+	  <if test="hasBreakfast != null">
+		has_breakfast = #{hasBreakfast,jdbcType=INTEGER},
+	  </if>
+	  <if test="breakfastPrice != null">
+		breakfast_price = #{breakfastPrice,jdbcType=DECIMAL},
+	  </if>
+	  <if test="breakfastServedDate != null and breakfastServedDate != ''">
+		breakfast_served_date = #{breakfastServedDate,jdbcType=VARCHAR},
+	  </if>
+	  <if test="breakfastStartTime != null and breakfastStartTime != ''">
+		breakfast_start_time = #{breakfastStartTime,jdbcType=VARCHAR},
+	  </if>
+	  <if test="breakfastEndTime != null and breakfastEndTime != ''">
+		breakfast_end_time = #{breakfastEndTime,jdbcType=VARCHAR},
+	  </if>
+	  <if test="isDiningReservation != null">
+		is_dining_reservation = #{isDiningReservation,jdbcType=INTEGER},
+	  </if>
+	  <if test="settlementType != null">
+		settlement_type = #{settlementType,jdbcType=INTEGER},
+	  </if>
+	  <if test="details != null">
+		details = #{details,jdbcType=LONGVARCHAR},
+	  </if>
+	  <if test="isDel != null">
+		is_del = #{isDel,jdbcType=INTEGER},
+	  </if>
+	  <if test="addTime != null">
+		add_time = #{addTime,jdbcType=TIMESTAMP},
+	  </if>
+	  <if test="updateTime != null">
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+	  </if>
+	</trim>
+	where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	delete from hotel
+	where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel
+	where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel
+  </select>
+  
+  <select id="selectListHotel" resultMap="BaseResultMap" parameterType="com.jyyq.platformweb.dao.Hotel" >
+	select 
+	  <include refid="Base_Column_List" />
+	from hotel
+  </select>
+</mapper>
